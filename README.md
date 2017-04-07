@@ -9,11 +9,11 @@ For example, when you have modules, A, B, C and D with the following dependencie
 
 ```
       <<depends>> +---+ <<depends>>
-           +----->| B |-----+
+           +------| B |<----+
    +---+   |      +---+     |    +---+
-   | A |---+                +--->| D |
+   | A |<--+                +----| D |
    +---+   |      +---+     |    +---+
-           +----->| C |-----+
+           +------| C |<----+
                   +---+
 ```
 
