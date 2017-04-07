@@ -29,10 +29,6 @@
     "mocha": "^3.2.0"
   },
   "eslintConfig": {
-    "rules": {
-      "no-console": 0,
-      "no-var": 2
-    },
     "extends": "enobufs"
   }
 }
