@@ -1,6 +1,6 @@
 {
   "name": "initgraph",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Initialize and uninitialize modules in the order of their dependency graph.",
   "main": "index.js",
   "scripts": {
