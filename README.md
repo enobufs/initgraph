@@ -31,9 +31,9 @@ $ npm i initgraph
 ### Requirements to your modules to be initialized
 Your modules need to expose following properties:
 * name {string}: Name of the module.
-* init {function}: Initilization method.
+* init {function}: Initialization method.
 * uninit {function}: Uninitialization method. (optional)
-* dependencies {array}: A list of name of modules which this module depend on.
+* dependencies {array}: A list of name of modules that this module depend.
 
 The init() and uninit() are expected to return a Promise. It is allowed to have
 these method take a callback. (will be promisified internally using bluebird)
