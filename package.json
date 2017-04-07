@@ -1,0 +1,38 @@
+{
+  "name": "initgraph",
+  "version": "0.0.1",
+  "description": "Initialize and uninitialize modules in the order of their dependency graph.",
+  "main": "index.js",
+  "scripts": {
+    "test": "istanbul cover _mocha",
+    "posttest": "eslint index.js lib test; istanbul check-coverage",
+    "lint": "eslint index.js lib test"
+  },
+  "repository": {
+    "url": "git@github.com:enobufs/initgraph.git"
+  },
+  "keywords": [
+    "initialize",
+    "dependency",
+    "graph"
+  ],
+  "author": "enobufs",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.0",
+    "debug": "^2.6.3"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-enobufs": "git+ssh://git@github.com:enobufs/eslint-config-enobufs.git",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.2.0"
+  },
+  "eslintConfig": {
+    "rules": {
+      "no-console": 0,
+      "no-var": 2
+    },
+    "extends": "enobufs"
+  }
+}
