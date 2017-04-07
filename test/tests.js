@@ -3,6 +3,7 @@
 const initgraph = require('..');
 const Promise = require('bluebird');
 const debug = require('debug')('initgraph:test');
+const assert = require('assert');
 
 const DELAY = 0;
 
@@ -185,6 +186,47 @@ describe('tests', function () {
             return graph.initialize()
             .then(function () {
                 return graph.uninitialize();
+            });
+        });
+    });
+
+    describe('failure tests', function () {
+        let graph;
+        let mods;
+
+        beforeEach(function () {
+            debug('initgraph');
+            graph = initgraph.create();
+            mods = [{
+                name: 'mod-a',
+                init: function () {
+                    return Promise.delay(DELAY)
+                    .then(function () {
+                        debug("mod-a init'd");
+                    });
+                }
+            }, {
+                name: 'mod-b',
+                init: function () {
+                    return Promise.delay(DELAY)
+                    .then(function () {
+                        debug("mod-b forced fail");
+                        throw Error('forced error');
+                    });
+                }
+            }];
+        });
+
+        it('init fail test', function () {
+            mods.forEach(function (mod) {
+                graph.register(mod);
+            });
+
+            return graph.initialize()
+            .then(() => {
+                throw Error('should fail');
+            }, (err) => {
+                assert.ok(err.message.match(/forced error/));
             });
         });
     });
